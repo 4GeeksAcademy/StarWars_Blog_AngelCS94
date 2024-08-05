@@ -1,27 +1,30 @@
-import React from 'react'
-
-const planetas = [
-  { name: "Luke Skywalker", imageUrl: "https://via.placeholder.com/150" },
-  { name: "C-3PO", imageUrl: "https://via.placeholder.com/150" },
-  { name: "R2-D2", imageUrl: "https://via.placeholder.com/150" },
-  { name: "Darth Vader", imageUrl: "https://via.placeholder.com/150" },
-  { name: "Leia Organa", imageUrl: "https://via.placeholder.com/150" },
-  { name: "Obi-Wan Kenobi", imageUrl: "https://via.placeholder.com/150" },
-  { name: "Chewbacca", imageUrl: "https://via.placeholder.com/150" },
-  { name: "Han Solo", imageUrl: "https://via.placeholder.com/150" },
-  { name: "Yoda", imageUrl: "https://via.placeholder.com/150" },
-  { name: "Palpatine", imageUrl: "https://via.placeholder.com/150" },
-];
+import React, { useContext, useEffect } from 'react';
+import { Context } from '../store/appContext'; // Asegúrate de que la ruta sea correcta
 
 const CardPlanetas = () => {
+  const { store, actions } = useContext(Context);
+
+  useEffect(() => {
+    actions.loadPlanetas();
+  }, []);
+
+  const handleImageError = (e) => {
+    e.target.src = './assets/img/big-placeholder.jpg'; // Ruta a la imagen de respaldo
+  };
+
   return (
     <div className="container my-4">
-      <h1 className="">planetas</h1>
+      <h1 className="">Planetas</h1>
       <div className="row flex-nowrap overflow-auto">
-        {planetas.map((planeta, index) => (
+        {store.planetas.map((planeta, index) => (
           <div className="col-md-4 mb-3" key={index} style={{ minWidth: '300px' }}>
             <div className="card">
-              <img src={planeta.imageUrl} className="card-img-top" alt={planeta.name} />
+              <img 
+                src={planeta.imageUrl} 
+                className="card-img-top" 
+                alt={planeta.name} 
+                onError={handleImageError} 
+              />
               <div className="card-body">
                 <h5 className="card-title">{planeta.name}</h5>
                 <a href="#" className="btn btn-primary">Learn more!</a>
