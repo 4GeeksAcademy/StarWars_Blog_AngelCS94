@@ -9,7 +9,7 @@ const CardPlanetas = () => {
   }, []);
 
   const handleImageError = (e) => {
-    e.target.src = './assets/img/big-placeholder.jpg'; // Ruta a la imagen de respaldo
+    e.target.src = 'https://i.imgflip.com/50grnm.png'; // Ruta a la imagen de respaldo
   };
 
   return (
