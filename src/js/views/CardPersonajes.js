@@ -19,7 +19,7 @@ const CardPersonajes = () => {
               <img src={personaje.imageUrl} className="card-img-top" alt={personaje.name} />
               <div className="card-body">
                 <h5 className="card-title">{personaje.name}</h5>
-                <a href="#" className="btn btn-primary">Learn more!</a>
+                <Link to={`/SingleCardPersonaje/${index}`} className="btn btn-primary">Learn more!</Link>
                 <button className="btn btn-warning ms-2"><i className="bi bi-heart"></i></button>
               </div>
             </div>
