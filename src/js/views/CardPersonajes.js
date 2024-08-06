@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { Context } from '../store/appContext'; // Asegúrate de que la ruta sea correcta
+import { Link } from 'react-router-dom';
 
 const CardPersonajes = () => {
   const { store, actions } = useContext(Context);
