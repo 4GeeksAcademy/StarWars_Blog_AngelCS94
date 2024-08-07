@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
 import { Context } from '../store/appContext';
+import { Link } from 'react-router-dom';
 
 const CardPlanetas = () => {
-  const { store } = useContext(Context);
+  const { store, actions } = useContext(Context);
 
   const handleImageError = (e) => {
-    e.target.src = 'https://i.imgflip.com/50grnm.png'; // Ruta a la imagen de respaldo
+    e.target.src = 'https://i.imgflip.com/50grnm.png';
   };
 
   return (
@@ -25,7 +25,7 @@ const CardPlanetas = () => {
               <div className="card-body">
                 <h5 className="card-title">{planeta.name}</h5>
                 <Link to={`/SingleCardPlaneta/${planeta.uid}`} className="btn btn-primary">Learn more!</Link>
-                <button className="btn btn-warning ms-2"><i className="bi bi-heart"></i></button>
+                <button className="btn btn-warning ms-2" onClick={() => actions.addFavorito(planeta)}><i className="bi bi-heart"></i></button>
               </div>
             </div>
           </div>

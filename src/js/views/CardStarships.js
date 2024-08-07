@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Context } from '../store/appContext'; 
 
 const CardStarships = () => {
-  const { store } = useContext(Context);
+  const { store, actions } = useContext(Context);
 
   const handleImageError = (e) => {
     e.target.src = 'https://i.kym-cdn.com/entries/icons/original/000/031/969/cover5.jpg'; // Ruta a la imagen de respaldo
@@ -50,7 +50,9 @@ const CardStarships = () => {
               <div className="card-body">
                 <h5 className="card-title">{starship.name}</h5>
                 <Link to={`/SingleCardStarship/${starship.uid}`} className="btn btn-primary">Learn more!</Link>
-                <button className="btn btn-warning ms-2"><i className="bi bi-heart"></i></button>
+                <button className="btn btn-warning ms-2" onClick={() => actions.addFavorito(starship)}>
+                  <i className="bi bi-heart"></i>
+                </button>
               </div>
             </div>
           </div>

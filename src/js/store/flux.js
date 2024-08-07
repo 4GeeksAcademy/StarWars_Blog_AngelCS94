@@ -3,13 +3,14 @@ const getState = ({ getStore, getActions, setStore }) => {
         store: {
             personajes: [],
             planetas: [],
-            starships: []
+            starships: [],
+            favoritos: [] // Añadir favoritos al estado
         },
         actions: {
             loadPersonajes: async () => {
                 try {
                     const store = getStore();
-                    if (store.personajes.length === 0) {  // Verificar si ya están cargados
+                    if (store.personajes.length === 0) {
                         let response = await fetch("https://www.swapi.tech/api/people");
                         if (!response.ok) throw new Error("Network response was not ok");
                         let data = await response.json();
@@ -33,7 +34,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             loadPlanetas: async () => {
                 try {
                     const store = getStore();
-                    if (store.planetas.length === 0) {  // Verificar si ya están cargados
+                    if (store.planetas.length === 0) {
                         let response = await fetch("https://www.swapi.tech/api/planets");
                         if (!response.ok) throw new Error("Network response was not ok");
                         let data = await response.json();
@@ -57,7 +58,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             loadStarships: async () => {
                 try {
                     const store = getStore();
-                    if (store.starships.length === 0) {  // Verificar si ya están cargados
+                    if (store.starships.length === 0) {
                         let response = await fetch("https://www.swapi.tech/api/starships");
                         if (!response.ok) throw new Error("Network response was not ok");
                         let data = await response.json();
@@ -77,6 +78,16 @@ const getState = ({ getStore, getActions, setStore }) => {
                 } catch (err) {
                     console.error(err);
                 }
+            },
+            addFavorito: (item) => {
+                const store = getStore();
+                if (!store.favoritos.some(fav => fav.uid === item.uid)) {
+                    setStore({ favoritos: [...store.favoritos, item] });
+                }
+            },
+            removeFavorito: (uid) => {
+                const store = getStore();
+                setStore({ favoritos: store.favoritos.filter(fav => fav.uid !== uid) });
             }
         }
     };

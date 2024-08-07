@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import { Context } from '../store/appContext'; 
+import { Context } from '../store/appContext';
 import { Link } from 'react-router-dom';
 
 const CardPersonajes = () => {
-  const { store } = useContext(Context);
+  const { store, actions } = useContext(Context);
 
   return (
     <div className="container my-4">
@@ -15,8 +15,8 @@ const CardPersonajes = () => {
               <img src={personaje.imageUrl} className="card-img-top" alt={personaje.name} />
               <div className="card-body">
                 <h5 className="card-title">{personaje.name}</h5>
-                <Link to={`/SingleCardPersonaje/${index}`} className="btn btn-primary">Learn more!</Link>
-                <button className="btn btn-warning ms-2"><i className="bi bi-heart"></i></button>
+                <Link to={`/SingleCardPersonaje/${personaje.uid}`} className="btn btn-primary">Learn more!</Link>
+                <button className="btn btn-warning ms-2" onClick={() => actions.addFavorito(personaje)}><i className="bi bi-heart"></i></button>
               </div>
             </div>
           </div>
