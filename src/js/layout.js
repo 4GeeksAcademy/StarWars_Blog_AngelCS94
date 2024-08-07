@@ -12,6 +12,7 @@ import CardPersonajes from "./views/CardPersonajes";
 import Cardstarships from "./views/CardStarships";
 import SingleCardPersonaje from "./views/SingleCardPersonaje";
 import SingleCardPlaneta from "./views/SingleCardPlaneta"; // Importar el componente
+import SingleCardStarship from "./views/SingleCardStarship";
 
 const Layout = () => {
   const basename = process.env.BASENAME || "";
@@ -26,7 +27,8 @@ const Layout = () => {
             <Route path="/CardPlanetas" element={<CardPlanetas />} />
             <Route path="/CardPersonajes" element={<CardPersonajes />} />
             <Route path="/SingleCardPersonaje/:id" element={<SingleCardPersonaje />} />
-            <Route path="/SingleCardPlaneta/:id" element={<SingleCardPlaneta />} /> {/* Añadir la nueva ruta */}
+            <Route path="/SingleCardPlaneta/:id" element={<SingleCardPlaneta />} />
+            <Route path="/SingleCardStarship/:id" element={<SingleCardStarship />} />
             <Route path="/CardStarships" element={<Cardstarships />} />
           </Routes>
           <Footer />

@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { Context } from '../store/appContext'; 
 
 const CardStarships = () => {
@@ -23,7 +24,7 @@ const CardStarships = () => {
               />
               <div className="card-body">
                 <h5 className="card-title">{starship.name}</h5>
-                <a href="#" className="btn btn-primary">Learn more!</a>
+                <Link to={`/SingleCardStarship/${starship.uid}`} className="btn btn-primary">Learn more!</Link>
                 <button className="btn btn-warning ms-2"><i className="bi bi-heart"></i></button>
               </div>
             </div>
