@@ -6,10 +6,9 @@ import CardPersonajes from "./CardPersonajes";
 import Cardstarships from "./CardStarships";
 
 export const Home = () => (
-	<div className="text-center mt-5">
-		
-		<CardPlanetas/>
-		<CardPersonajes/>
-		<Cardstarships/>
-	</div>
+  <div className="text-center mt-5">
+    <CardPlanetas />
+    <CardPersonajes />
+    <Cardstarships />
+  </div>
 );

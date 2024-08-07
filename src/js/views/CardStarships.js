@@ -1,12 +1,8 @@
-import React, { useContext, useEffect } from 'react';
-import { Context } from '../store/appContext'; // Asegúrate de que la ruta sea correcta
+import React, { useContext } from 'react';
+import { Context } from '../store/appContext'; 
 
 const CardStarships = () => {
-  const { store, actions } = useContext(Context);
-
-  useEffect(() => {
-    actions.loadStarships();
-  }, []);
+  const { store } = useContext(Context);
 
   const handleImageError = (e) => {
     e.target.src = 'https://i.kym-cdn.com/entries/icons/original/000/031/969/cover5.jpg'; // Ruta a la imagen de respaldo

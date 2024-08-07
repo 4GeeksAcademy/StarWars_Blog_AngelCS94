@@ -1,13 +1,9 @@
-import React, { useContext, useEffect } from 'react';
-import { Context } from '../store/appContext'; // Asegúrate de que la ruta sea correcta
+import React, { useContext } from 'react';
+import { Context } from '../store/appContext'; 
 import { Link } from 'react-router-dom';
 
 const CardPersonajes = () => {
-  const { store, actions } = useContext(Context);
-
-  useEffect(() => {
-    actions.loadPersonajes();
-  }, []);
+  const { store } = useContext(Context);
 
   return (
     <div className="container my-4">
