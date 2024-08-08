@@ -25,7 +25,9 @@ const SingleCardPlaneta = () => {
           terrain: data.result.properties.terrain,
           surfaceWater: data.result.properties.surface_water,
           description: "Detailed description here",
-          imageUrl: `https://starwars-visualguide.com/assets/img/planets/${id}.jpg`
+          imageUrl: data.result.properties.name === "Tatooine"
+            ? 'https://static.wikia.nocookie.net/esstarwars/images/b/b0/Tatooine_TPM.png/revision/latest?cb=20131214162357'
+            : `https://starwars-visualguide.com/assets/img/planets/${id}.jpg`
         };
         setPlaneta(planetDetails);
       } catch (error) {
@@ -57,7 +59,7 @@ const SingleCardPlaneta = () => {
         </div>
         <div className="col-md-6">
           <h1 className="display-4 text-white">{planeta.name}</h1>
-          <p className="lead text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> {/* Añadí text-white para asegurar el color */}
+          <p className="lead text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div>
       </div>
       <div className="row">
