@@ -6,7 +6,7 @@ export const Navbar = () => {
   const { store, actions } = useContext(Context);
 
   return (
-    <nav className="navbar navbar-light bg-dark mb-3">
+    <nav className="navbar navbar-light bg-dark mb-3 sticky-top">
       <Link to="/">
         <img src="https://via.placeholder.com/150" alt="Logo" className="navbar-brand mb-0 h1" style={{ height: '50px' }} />
       </Link>
