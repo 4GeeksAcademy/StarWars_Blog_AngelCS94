@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Context } from '../store/appContext';
-import './SingleCardPersonaje.css';
+import './SingleCardPersonaje.css';  // Asegúrate de que la ruta sea correcta
+
 const SingleCardPlaneta = () => {
   const { id } = useParams();
   const { store } = useContext(Context);
@@ -56,12 +57,12 @@ const SingleCardPlaneta = () => {
         </div>
         <div className="col-md-6">
           <h1 className="display-4 text-white">{planeta.name}</h1>
-          <p className="lead">{planeta.description}</p>
+          <p className="lead text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> {/* Añadí text-white para asegurar el color */}
         </div>
       </div>
       <div className="row">
         <div className="col">
-          <table className="table table-bordered text-center">
+          <table className="table table text-center">
             <thead className="thead-light text-white">
               <tr>
                 <th>Name</th>
