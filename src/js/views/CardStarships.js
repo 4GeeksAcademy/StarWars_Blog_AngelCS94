@@ -1,12 +1,19 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { Context } from '../store/appContext'; 
+import { Context } from '../store/appContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart as faSolidHeart } from '@fortawesome/free-solid-svg-icons';
+import { faHeart as faRegularHeart } from '@fortawesome/free-regular-svg-icons';
 
 const CardStarships = () => {
   const { store, actions } = useContext(Context);
 
+  const isFavorite = (starship) => {
+    return store.favoritos.some(fav => fav.uid === starship.uid && fav.type === "starship");
+  };
+
   const handleImageError = (e) => {
-    e.target.src = 'https://i.kym-cdn.com/entries/icons/original/000/031/969/cover5.jpg'; // Ruta a la imagen de respaldo
+    e.target.src = 'https://i.kym-cdn.com/entries/icons/original/000/031/969/cover5.jpg';
   };
 
   const getStarshipImage = (starship) => {
@@ -40,19 +47,38 @@ const CardStarships = () => {
       <div className="row flex-nowrap overflow-auto">
         {store.starships.map((starship, index) => (
           <div className="col-md-4 mb-3" key={index} style={{ minWidth: '300px' }}>
-            <div className="card">
+            <div className="card h-100">
               <img 
                 src={getStarshipImage(starship)} 
-                className="card-img-top" 
+                className="card-img-top img-fluid" 
                 alt={starship.name} 
                 onError={handleImageError} 
+                style={{ width: '400px', height: '400px', objectFit: 'cover' }} 
               />
-              <div className="card-body">
+              <div className="card-body d-flex flex-column">
                 <h5 className="card-title">{starship.name}</h5>
-                <Link to={`/SingleCardStarship/${starship.uid}`} className="btn btn-primary">Learn more!</Link>
-                <button className="btn btn-warning ms-2" onClick={() => actions.addFavorito(starship)}>
-                  <i className="bi bi-heart"></i>
-                </button>
+                <div className="mt-auto">
+                  <Link to={`/SingleCardStarship/${starship.uid}`} className="btn btn-primary">Learn more!</Link>
+                  <button 
+                    className="btn btn-warning ms-2" 
+                    onClick={() => actions.addFavorito({ ...starship, type: "starship" })}
+                    onMouseEnter={(e) => {
+                        if (!isFavorite(starship)) {
+                            e.currentTarget.querySelector('svg').style.color = 'yellow';
+                        }
+                    }}
+                    onMouseLeave={(e) => {
+                        if (!isFavorite(starship)) {
+                            e.currentTarget.querySelector('svg').style.color = '';
+                        }
+                    }}
+                  >
+                    <FontAwesomeIcon 
+                      icon={isFavorite(starship) ? faSolidHeart : faRegularHeart} 
+                      style={{ color: isFavorite(starship) ? 'black' : 'yellow' }} 
+                    />
+                  </button>
+                </div>
               </div>
             </div>
           </div>

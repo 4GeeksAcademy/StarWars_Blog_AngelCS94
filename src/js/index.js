@@ -7,6 +7,10 @@ import "../styles/index.css";
 
 //import your own components
 import Layout from './layout.js'
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+
+library.add(fas);
 
 //
 const root = createRoot(document.querySelector("#app"))

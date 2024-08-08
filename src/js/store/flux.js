@@ -81,7 +81,11 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             addFavorito: (item) => {
                 const store = getStore();
-                if (!store.favoritos.some(fav => fav.uid === item.uid)) {
+                const isFavorito = store.favoritos.some(fav => fav.uid === item.uid && fav.type === item.type);
+            
+                if (isFavorito) {
+                    setStore({ favoritos: store.favoritos.filter(fav => fav.uid !== item.uid || fav.type !== item.type) });
+                } else {
                     setStore({ favoritos: [...store.favoritos, item] });
                 }
             },
