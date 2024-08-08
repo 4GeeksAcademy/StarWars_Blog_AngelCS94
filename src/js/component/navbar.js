@@ -6,13 +6,13 @@ export const Navbar = () => {
   const { store, actions } = useContext(Context);
 
   return (
-    <nav className="navbar navbar-light bg-dark mb-3 sticky-top">
+    <nav className="navbar navbar-dark mb-3 sticky-top" style={{ backgroundColor: 'rgba(0, 0, 0, 0.8)' }}>
       <Link to="/">
-        <img src="https://via.placeholder.com/150" alt="Logo" className="navbar-brand mb-0 h1" style={{ height: '50px' }} />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Star_Wars_Logo..png" alt="Logo" className="navbar-brand mb-0 h1" style={{ height: '50px', marginLeft:"15px" }} />
       </Link>
       <div className="ml-auto">
         <div className="dropdown">
-          <button className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+          <button className="btn btn-light dropdown-toggle" style={{marginRight:"15px"}} type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
             Favorites <span className="badge bg-secondary">{store.favoritos.length}</span>
           </button>
           <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
@@ -22,8 +22,8 @@ export const Navbar = () => {
               store.favoritos.map((item, index) => (
                 <li key={index} className="dropdown-item d-flex justify-content-between align-items-center">
                   <Link to={`/SingleCardPersonaje/${item.uid}`}>{item.name}</Link>
-                  <button className="btn btn-danger btn-sm" onClick={() => actions.removeFavorito(item.uid)}>
-                    <i className="bi bi-trash"></i>
+                  <button className="btn btn-danger btn-sm" style={{ width: '30px' }} onClick={() => actions.removeFavorito(item.uid)}>
+                    <i className="fas fa-trash"></i>
                   </button>
                 </li>
               ))

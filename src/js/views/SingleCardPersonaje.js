@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Context } from '../store/appContext'; // Ajusta la ruta según sea necesario
+import { Context } from '../store/appContext'; 
+import './SingleCardPersonaje.css'; // Asegúrate de que la ruta sea correcta
 
 const SingleCardPersonaje = () => {
   const { id } = useParams();
@@ -51,14 +52,14 @@ const SingleCardPersonaje = () => {
           />
         </div>
         <div className="col-md-6">
-          <h1 className="display-4">{personaje.name}</h1>
-          <p className="lead">{personaje.description}</p>
+          <h1 className="display-4 text-white">{personaje.name}</h1>
+          <p className="lead text-white">{personaje.description}</p>
         </div>
       </div>
       <div className="row">
         <div className="col">
-          <table className="table table-bordered text-center">
-            <thead className="thead-light">
+          <table className="table table text-center">
+            <thead className="thead-light text-white">
               <tr>
                 <th>Name</th>
                 <th>Birth Year</th>

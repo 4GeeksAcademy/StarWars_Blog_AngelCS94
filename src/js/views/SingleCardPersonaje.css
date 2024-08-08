@@ -1,0 +1,23 @@
+/* Estilo para cambiar el color del texto en las celdas <td> */
+.table tbody td {
+    color: #e0e0e0; /* Cambia este color según tus preferencias */
+  }
+  
+  /* Estilo para cambiar el color de las líneas que separan las celdas */
+  .table, 
+  .table thead th, 
+  .table tbody td {
+    border-color: #6c757d !important; /* Color gris para las líneas */
+  }
+  
+  /* Asegúrate de que el fondo de la tabla sea transparente o acorde al diseño */
+  .table {
+    background-color: transparent;
+  }
+  
+  .thead-light th {
+    color: #ffffff; /* Color blanco para los encabezados de la tabla */
+    border-color: #6c757d; /* Bordes grises */
+  }
+  
+  

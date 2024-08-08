@@ -4,7 +4,7 @@ import { Context } from '../store/appContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as faSolidHeart } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as faRegularHeart } from '@fortawesome/free-regular-svg-icons';
-
+import './CardStarships.css'
 const CardStarships = () => {
   const { store, actions } = useContext(Context);
 
@@ -43,11 +43,14 @@ const CardStarships = () => {
 
   return (
     <div className="container my-4">
-      <h1 className="">Starships</h1>
+      <h1 className="text-white text-start">Starships</h1>
       <div className="row flex-nowrap overflow-auto">
         {store.starships.map((starship, index) => (
           <div className="col-md-4 mb-3" key={index} style={{ minWidth: '300px' }}>
-            <div className="card h-100">
+            <div className="card h-100"style={{ 
+                backgroundColor: 'rgba(2, 2, 2, 0.8)', /* Fondo verde */
+                boxShadow: '0 4px 8px rgb(30, 144, 255, 0.5)' /* Sombra roja */
+              }}>
               <img 
                 src={getStarshipImage(starship)} 
                 className="card-img-top img-fluid" 
@@ -56,9 +59,9 @@ const CardStarships = () => {
                 style={{ width: '400px', height: '400px', objectFit: 'cover' }} 
               />
               <div className="card-body d-flex flex-column">
-                <h5 className="card-title">{starship.name}</h5>
+                <h5 className="card-title text-white">{starship.name}</h5>
                 <div className="mt-auto">
-                  <Link to={`/SingleCardStarship/${starship.uid}`} className="btn btn-primary">Learn more!</Link>
+                  <Link to={`/SingleCardStarship/${starship.uid}`} className="btn btn-secondary">Learn more!</Link>
                   <button 
                     className="btn btn-warning ms-2" 
                     onClick={() => actions.addFavorito({ ...starship, type: "starship" })}

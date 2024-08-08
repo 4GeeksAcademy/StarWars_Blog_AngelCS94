@@ -2,7 +2,7 @@ import React from 'react'
 import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Context } from '../store/appContext';
-
+import './SingleCardPersonaje.css';
 
 const SingleCardStarship = () => {
   const { id } = useParams();
@@ -61,13 +61,13 @@ const SingleCardStarship = () => {
           />
         </div>
         <div className="col-md-6">
-          <h1 className="display-4">{starship.name}</h1>
+          <h1 className="display-4 text-white">{starship.name}</h1>
           <p className="lead">{starship.description}</p>
         </div>
       </div>
       <div className="row">
         <div className="col">
-          <table className="table table-bordered text-center">
+          <table className="table table-bordered text-center text-white">
             <thead className="thead-light">
               <tr>
                 <th>Name</th>
