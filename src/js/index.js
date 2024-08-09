@@ -12,7 +12,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 
 library.add(fas);
 
-//
+
 const root = createRoot(document.querySelector("#app"))
 
 //render your react application

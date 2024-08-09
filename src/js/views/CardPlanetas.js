@@ -27,8 +27,8 @@ const CardPlanetas = () => {
                 {store.planetas.map((planeta, index) => (
                     <div className="col-md-4 mb-3" key={index} style={{ minWidth: '300px' }}>
                         <div className="card h-100"style={{ 
-                backgroundColor: 'rgba(2, 2, 2, 0.8)', /* Fondo verde */
-                boxShadow: '0 4px 8px rgb(0, 128, 0, 0.5)' /* Sombra roja */
+                backgroundColor: 'rgba(2, 2, 2, 0.8)', 
+                boxShadow: '0 4px 8px rgb(0, 128, 0, 0.5)' 
               }}>
                             <img 
                                 src={getPlanetaImage(planeta)} 

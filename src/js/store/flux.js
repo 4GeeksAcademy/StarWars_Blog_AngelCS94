@@ -4,7 +4,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         personajes: [],
         planetas: [],
         starships: [],
-        favoritos: [] // Añadir favoritos al estado
+        favoritos: [] 
       },
       actions: {
         loadPersonajes: async () => {
@@ -81,17 +81,14 @@ const getState = ({ getStore, getActions, setStore }) => {
         },
         addFavorito: (item) => {
             const store = getStore();
-            // Verificar si el favorito ya está en la lista
             const isAlreadyFavorite = store.favoritos.some(fav => fav.uid === item.uid && fav.type === item.type);
             
-            // Si no está, agregarlo
             if (!isAlreadyFavorite) {
                 setStore({ favoritos: [...store.favoritos, item] });
             }
         },
         removeFavorito: (uid, type) => {
             const store = getStore();
-            // Filtrar para eliminar el favorito correcto
             setStore({ favoritos: store.favoritos.filter(fav => !(fav.uid === uid && fav.type === type)) });
         }
       }

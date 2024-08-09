@@ -6,7 +6,7 @@ export const Navbar = () => {
     const { store, actions } = useContext(Context);
 
     const handleRemove = (e, uid, type) => {
-        e.stopPropagation();  // Evitar el cierre del desplegable
+        e.stopPropagation();  
         actions.removeFavorito(uid, type);
     };
 

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Context } from '../store/appContext';
-import './SingleCardPersonaje.css';  // Asegúrate de que la ruta sea correcta
+import './SingleCardPersonaje.css';  
 
 const SingleCardStarship = () => {
   const { id } = useParams();
@@ -54,7 +54,7 @@ const SingleCardStarship = () => {
           cargoCapacity: data.result.properties.cargo_capacity,
           consumables: data.result.properties.consumables,
           description: "Detailed description here",
-          imageUrl: getStarshipImage({ name: data.result.properties.name }) // Usamos la función aquí
+          imageUrl: getStarshipImage({ name: data.result.properties.name }) 
         };
         setStarship(starshipDetails);
       } catch (error) {

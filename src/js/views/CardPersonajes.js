@@ -20,8 +20,8 @@ const CardPersonajes = () => {
         {store.personajes.map((personaje, index) => (
           <div className="col-md-4 mb-3" key={index} style={{ minWidth: '300px' }}>
             <div className="card h-100" style={{ 
-                backgroundColor: 'rgba(2, 2, 2, 0.8)', /* Fondo verde */
-                boxShadow: '0 4px 8px rgba(255, 0, 0, 0.5)' /* Sombra roja */
+                backgroundColor: 'rgba(2, 2, 2, 0.8)', 
+                boxShadow: '0 4px 8px rgba(255, 0, 0, 0.5)' 
               }}>
               <div className="card-img-wrapper box" style={{ overflow: 'hidden', height: '400px' }}>
                 <img 

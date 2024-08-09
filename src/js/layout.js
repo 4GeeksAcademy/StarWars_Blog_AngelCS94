@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
-import { Home } from "./views/home"; // Actualizar la declaración de importación
+import { Home } from "./views/home"; 
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -11,7 +11,7 @@ import CardPlanetas from "./views/CardPlanetas";
 import CardPersonajes from "./views/CardPersonajes";
 import Cardstarships from "./views/CardStarships";
 import SingleCardPersonaje from "./views/SingleCardPersonaje";
-import SingleCardPlaneta from "./views/SingleCardPlaneta"; // Importar el componente
+import SingleCardPlaneta from "./views/SingleCardPlaneta"; 
 import SingleCardStarship from "./views/SingleCardStarship";
 
 const Layout = () => {

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Context } from '../store/appContext'; 
-import './SingleCardPersonaje.css'; // Asegúrate de que la ruta sea correcta
+import './SingleCardPersonaje.css'; 
 
 const SingleCardPersonaje = () => {
   const { id } = useParams();
